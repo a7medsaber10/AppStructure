@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    @* Start Header *@
+    <nav>
+        <center>
+            <!--We use / to remove any thing before the link-->
+
+            <!--1.Html Tag-->
+             <a href="/Home/Index" class="btn btn-primary">Home</a> 
+
+            <!--2.HTML Helpers-->
+             @HTML.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary" }) 
+
+            <!--3.Tag Helpers-->
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+            <a asp-controller="Home" asp-action="AboutUs" class="btn btn-warning">About Us</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-success">Privacy</a>
+            <a asp-controller="Home" asp-action="ContactUs" class="btn btn-light">Contact Us</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-danger">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-info">Register</a>
+        </center>
+    </nav>
+    @* End Header *@
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @* Start Footer *@
+    <footer>
+        <center>
+            <div>
+                <p>Copyrights &copy; for Ahmed Saber @DateTime.Now.Year</p>
+            </div>
+        </center>
+    </footer>
+    @* End Footer *@
+</body>
+</html>
